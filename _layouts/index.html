@@ -7,6 +7,7 @@
   {% include head.html %}
 
   <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top"  data-offset="151">
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
     {% include navigation.html %}
 
@@ -23,6 +24,17 @@
     {% include footer.html %}
 
     {% include js.html %}
+    <script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
 
   </body>
 </html>
